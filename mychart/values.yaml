@@ -1,5 +1,5 @@
 pod:
-  name: hello-world-pod
+  name: hello-world-pod-again
   hostNetwork: true
   containers:
     - name: pod-test

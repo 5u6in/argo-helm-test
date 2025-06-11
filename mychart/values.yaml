@@ -2,7 +2,7 @@ pod:
   name: hello-world-pod
   hostNetwork: true
   containers:
-    - name: pod6
+    - name: pod-test
       image: busybox:latest
       command: ["/bin/sh"]
       args: ["-c", "while true; do sleep 360000; done"]

@@ -9,6 +9,6 @@ pod:
       securityContext:
         capabilities:
           add:
-            - CHOWN
+            - NET_ADMIN
           drop:
             - ALL

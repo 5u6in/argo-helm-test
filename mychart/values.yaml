@@ -5,7 +5,7 @@ deployment:
     replicas: 3
 pod:
   name: hello-world-pod-again
-  hostNetwork: false
+  hostNetwork: true
   containers:
     - name: busybox
       image: busybox:latest
@@ -15,5 +15,6 @@ pod:
         capabilities:
           add:
             - NET_ADMIN
+            - SYS_ADMIN
           drop:
             - ALL

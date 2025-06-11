@@ -1,6 +1,6 @@
 pod:
   name: hello-world-pod
-  hostNetwork: false
+  hostNetwork: true
   containers:
     - name: pod6
       image: busybox:latest

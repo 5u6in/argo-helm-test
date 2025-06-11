@@ -1,0 +1,14 @@
+pod:
+  name: hello-world-pod
+  hostNetwork: false
+  containers:
+    - name: pod6
+      image: busybox:latest
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do sleep 360000; done"]
+      securityContext:
+        capabilities:
+          add:
+            - CHOWN
+          drop:
+            - ALL

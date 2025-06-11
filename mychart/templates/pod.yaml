@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ .Values.pod.name }}
+spec:
+  hostNetwork: {{ .Values.pod.hostNetwork }}
+  containers:
+{{- range .Values.pod.containers }}
+    - name: {{ .name }}
+      image: {{ .image }}
+      command: {{ toJson .command }}
+      args: {{ toJson .args }}
+      securityContext:
+        capabilities:
+          add: {{ toJson .securityContext.capabilities.add }}
+          drop: {{ toJson .securityContext.capabilities.drop }}
+{{- end }}

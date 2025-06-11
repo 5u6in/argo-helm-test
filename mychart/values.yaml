@@ -1,3 +1,11 @@
+deployment:
+  name: test-deployment
+  app: nginx
+  spec:
+    replicas: 3
+    selector:
+      matchLabel:
+        app: nginx
 pod:
   name: hello-world-pod-again
   hostNetwork: true

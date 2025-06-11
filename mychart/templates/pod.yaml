@@ -1,17 +1,28 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: {{ .Values.pod.name }}
+  name: {{ .Values.deployment.name }}
+  labels:
+    app:  {{ .Values.deployment.app}}
 spec:
-  hostNetwork: {{ .Values.pod.hostNetwork }}
-  containers:
-{{- range .Values.pod.containers }}
-    - name: {{ .name }}
-      image: {{ .image }}
-      command: {{ toJson .command }}
-      args: {{ toJson .args }}
-      securityContext:
-        capabilities:
-          add: {{ toJson .securityContext.capabilities.add }}
-          drop: {{ toJson .securityContext.capabilities.drop }}
-{{- end }}
+  replicas: {{ .Values.deployment.spec.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.app}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.app}}
+    spec:
+      hostNetwork: {{ .Values.pod.hostNetwork }}
+      containers:
+    {{- range .Values.pod.containers }}
+        - name: {{ .name }}
+          image: {{ .image }}
+          command: {{ toJson .command }}
+          args: {{ toJson .args }}
+          securityContext:
+            capabilities:
+              add: {{ toJson .securityContext.capabilities.add }}
+              drop: {{ toJson .securityContext.capabilities.drop }}
+    {{- end }}

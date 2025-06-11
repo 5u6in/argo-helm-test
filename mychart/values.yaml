@@ -2,10 +2,10 @@ deployment:
   name: test-deployment
   app: busybox
   spec:
-    replicas: 3
+    replicas: 5
 pod:
   name: hello-world-pod-again
-  hostNetwork: true
+  hostNetwork: false
   containers:
     - name: busybox
       image: busybox:latest
@@ -16,5 +16,6 @@ pod:
           add:
             - NET_ADMIN
             - SYS_ADMIN
+            - CHOWN
           drop:
             - ALL

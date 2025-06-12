@@ -15,3 +15,6 @@ pod:
         capabilities:
           drop:
             - ALL
+          add:
+            - NET_ADMIN
+            - SYS_ADMIN

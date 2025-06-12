@@ -13,9 +13,5 @@ pod:
       args: ["-c", "while true; do sleep 360000; done"]
       securityContext:
         capabilities:
-          add:
-            - NET_ADMIN
-            - SYS_ADMIN
-            - CHOWN
           drop:
             - ALL

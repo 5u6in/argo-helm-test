@@ -17,4 +17,3 @@ pod:
             - ALL
           add:
             - NET_ADMIN
-            - SYS_ADMIN
